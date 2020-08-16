@@ -7,8 +7,11 @@ import json
 # Create your views here.
 
 def index(request):
-    allprod= Product.objects.all()
-    return render(request,'outlet/index.html',{'allprod':allprod})
+    products= Product.objects.all()
+    n= len(products)
+    nSlides= n//4 + ceil((n/4) + (n//4))
+    params={'no_of_slides':nSlides, 'range':range(1,nSlides), 'product': products}
+    return render(request,'outlet/index.html', params)
 
 def about(request):
     return render(request,'outlet/about.html')
