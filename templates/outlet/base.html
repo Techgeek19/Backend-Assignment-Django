@@ -1,0 +1,1647 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;700&family=Indie+Flower&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <title> {% block title %} {% endblock %} </title>
+</head>
+
+<body>
+
+    <body class="hero-anime">
+
+        <div class="navigation-wrap bg-light start-header start-style">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-md navbar-light">
+
+                            <a class="navbar-brand" href=""><img src="" alt=""></a>
+
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                             
+                                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                 
+                                    {% if request.user.is_authenticated %}
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                      <a class="nav-link" href="/outlet/">Home</a>
+                              
+                                  </li>
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="/outlet/about">About Us</a> </li>                            
+                              
+                                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                        <a class="nav-link" href="/outlet/contact">Contact Us</a>
+                                    </li>
+                                                           
+                                    <li class="nav-item dropdown ml-3">
+                                      <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Hello! {{ request.user.username|title }}
+                                      </a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                          <a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a>
+                                          <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                                      </div>
+                                  </li>
+                                  {% else %}
+                                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="/">Home</a>
+                            
+                                </li>
+                                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                    <a class="nav-link" href="{% url 'signup'%}">Register</a>
+                            
+                                </li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                                  <a class="nav-link" href="{% url 'login'%}">Login</a>
+                          
+                              </li>
+                                  {% endif %}
+                                </ul>
+                            </div>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link to page
+    ================================================== -->
+        <div class="dmode">
+            <div id="switch">
+                <div id="circle"></div>
+            </div>
+        </div>
+
+        <!-- <a><div id="switch" class="link-to-portfolio" >
+        <div id="circle"></div>
+      </div></a> -->
+        {% block body %} {% endblock %}
+    </body>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #212112;
+            background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat-back.svg');
+            background-position: center;
+            background-repeat: repeat;
+            background-size: 7%;
+            background-color: #fff;
+            overflow-x: hidden;
+            transition: all 200ms linear;
+        }
+
+        ::selection {
+            color: #fff;
+            background-color: #8167a9;
+        }
+
+        ::-moz-selection {
+            color: #fff;
+            background-color: #8167a9;
+        }
+
+
+/* BOOTSTRAP TAG INPUT */
+
+.bootstrap-tagsinput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  width: 100%;
+  line-height: 22px;
+  cursor: text;
+}
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 6px;
+  margin: 0;
+  width: auto;
+  max-width: inherit;
+}
+.bootstrap-tagsinput.form-control input::-moz-placeholder {
+  color: #777;
+  opacity: 1;
+}
+.bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .badge {
+  margin: 2px 0;
+  padding:5px 8px;
+}
+.bootstrap-tagsinput .badge [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.bootstrap-tagsinput .badge [data-role="remove"]:after {
+  content: "×";
+  padding: 0px 4px;
+  background-color:rgba(0, 0, 0, 0.1);
+  border-radius:50%;
+  font-size:13px
+}
+.bootstrap-tagsinput .badge [data-role="remove"]:hover:after {
+
+  background-color:rgba(0, 0, 0, 0.62);}
+.bootstrap-tagsinput .badge [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.tt-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+    cursor: pointer;
+}
+
+.tt-suggestion {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.tt-suggestion:hover,
+.tt-suggestion:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+
+
+        /* #Navigation
+    ================================================== */
+
+        .start-header {
+            opacity: 1;
+            transform: translateY(0);
+            padding: 10px 0;
+            box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.15);
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .start-header.scroll-on {
+            box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+            padding: 5px 0;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .start-header.scroll-on .navbar-brand img {
+            height: 28px;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .navigation-wrap {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .navbar {
+            padding: 0;
+        }
+
+        .navbar-brand img {
+            height: 52px;
+            width: auto;
+            display: block;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .navbar-toggler {
+            float: right;
+            border: none;
+            padding-right: 0;
+        }
+
+        .navbar-toggler:active,
+        .navbar-toggler:focus {
+            outline: none;
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            width: 24px;
+            height: 17px;
+            background-image: none;
+            position: relative;
+            border-bottom: 1px solid #000;
+            transition: all 300ms linear;
+        }
+
+        .navbar-light .navbar-toggler-icon:after,
+        .navbar-light .navbar-toggler-icon:before {
+            width: 24px;
+            position: absolute;
+            height: 1px;
+            background-color: #000;
+            top: 0;
+            left: 0;
+            content: '';
+            z-index: 2;
+            transition: all 300ms linear;
+        }
+
+        .navbar-light .navbar-toggler-icon:after {
+            top: 8px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+            transform: rotate(45deg);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+            transform: translateY(8px) rotate(-45deg);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+            border-color: transparent;
+        }
+
+        .nav-link {
+            color: #212121 !important;
+            font-weight: 500;
+            transition: all 200ms linear;
+        }
+
+        .nav-item:hover .nav-link {
+            color: #8167a9 !important;
+        }
+
+        .nav-item.active .nav-link {
+            color: #777 !important;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 5px 0 !important;
+            display: inline-block;
+        }
+
+        .nav-item:after {
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            content: '';
+            background-color: #8167a9;
+            opacity: 0;
+            transition: all 200ms linear;
+        }
+
+        .nav-item:hover:after {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .nav-item.active:hover:after {
+            opacity: 0;
+        }
+
+        .nav-item {
+            position: relative;
+            transition: all 200ms linear;
+        }
+
+        /* #Primary style
+    ================================================== */
+
+        .bg-light {
+            background-color: #fff !important;
+            transition: all 200ms linear;
+        }
+
+        .section {
+            position: relative;
+            width: 100%;
+            display: block;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .over-hide {
+            overflow: hidden;
+        }
+
+        .absolute-center {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            /* margin-top: 40px; */
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+
+        h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: #212112;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin: 0;
+            padding-top: 10px;
+            opacity: 1;
+            transform: translate(0);
+            transition: all 300ms linear;
+            transition-delay: 1700ms;
+        }
+
+        body.hero-anime p {
+            opacity: 0;
+            transform: translateY(40px);
+            transition-delay: 1700ms;
+        }
+
+        h1 span {
+            display: inline-block;
+            transition: all 300ms linear;
+            opacity: 1;
+            transform: translate(0);
+        }
+
+        body.hero-anime h1 span:nth-child(1) {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        body.hero-anime h1 span:nth-child(2) {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        body.hero-anime h1 span:nth-child(3) {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        body.hero-anime h1 span:nth-child(4) {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        body.hero-anime h1 span:nth-child(5) {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        body.hero-anime h1 span:nth-child(6) {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        body.hero-anime h1 span:nth-child(7) {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+
+        body.hero-anime h1 span:nth-child(8) {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        body.hero-anime h1 span:nth-child(9) {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        body.hero-anime h1 span:nth-child(10) {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        h1 span:nth-child(1) {
+            transition-delay: 1000ms;
+        }
+
+        h1 span:nth-child(2) {
+            transition-delay: 700ms;
+        }
+
+        h1 span:nth-child(3) {
+            transition-delay: 900ms;
+        }
+
+        h1 span:nth-child(4) {
+            transition-delay: 800ms;
+        }
+
+        h1 span:nth-child(5) {
+            transition-delay: 1000ms;
+        }
+
+        h1 span:nth-child(6) {
+            transition-delay: 700ms;
+        }
+
+        h1 span:nth-child(7) {
+            transition-delay: 900ms;
+        }
+
+        h1 span:nth-child(8) {
+            transition-delay: 800ms;
+        }
+
+        h1 span:nth-child(9) {
+            transition-delay: 600ms;
+        }
+
+        h1 span:nth-child(10) {
+            transition-delay: 700ms;
+        }
+
+        body.hero-anime h1 span:nth-child(11) {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        body.hero-anime h1 span:nth-child(12) {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        body.hero-anime h1 span:nth-child(13) {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        body.hero-anime h1 span:nth-child(14) {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        body.hero-anime h1 span:nth-child(15) {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        h1 span:nth-child(11) {
+            transition-delay: 1300ms;
+        }
+
+        h1 span:nth-child(12) {
+            transition-delay: 1500ms;
+        }
+
+        h1 span:nth-child(13) {
+            transition-delay: 1400ms;
+        }
+
+        h1 span:nth-child(14) {
+            transition-delay: 1200ms;
+        }
+
+        h1 span:nth-child(15) {
+            transition-delay: 1450ms;
+        }
+
+        #switch,
+        #circle {
+            cursor: pointer;
+            -webkit-transition: all 300ms linear;
+            transition: all 300ms linear;
+        }
+
+        #switch {
+            width: 35px;
+            height: 8px;
+            border: 2px solid #8167a9;
+            border-radius: 27px;
+            background: #000;
+            position: relative;
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            opacity: 1;
+            transform: translate(0);
+            transition: all 300ms linear;
+            transition-delay: 1900ms;
+        }
+
+        body.hero-anime #switch {
+            opacity: 0;
+            transform: translateY(40px);
+            transition-delay: 1900ms;
+        }
+
+        #circle {
+            position: absolute;
+            top: -8px;
+            left: -13px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #000;
+        }
+
+        .switched {
+            border-color: #000 !important;
+            background: #8167a9 !important;
+        }
+
+        .switched #circle {
+            left: 20px;
+            box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25), 0 0 0 1px rgba(26, 53, 71, 0.07);
+            background: #fff;
+        }
+
+        .nav-item .dropdown-menu {
+            transform: translate3d(0, 10px, 0);
+            visibility: hidden;
+            opacity: 0;
+            max-height: 0;
+            display: block;
+            padding: 0;
+            margin: 0;
+            transition: all 200ms linear;
+        }
+
+        .nav-item.show .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            max-height: 999px;
+            transform: translate3d(0, 0px, 0);
+        }
+
+        .dropdown-menu {
+            padding: 10px !important;
+            margin: 0;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #212121;
+            background-color: #fcfaff;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
+            transition: all 200ms linear;
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-item {
+            padding: 3px 15px;
+            color: #212121;
+            border-radius: 2px;
+            transition: all 200ms linear;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            color: #fff;
+            background-color: rgba(129, 103, 169, .6);
+        }
+
+        body.dark {
+            color: #fff;
+            background-color: #1f2029;
+        }
+
+        body.dark h1 {
+            color: #fff;
+        }
+
+        body.dark h1 span {
+            transition-delay: 0ms !important;
+        }
+
+        body.dark p {
+            color: #fff;
+            transition-delay: 0ms !important;
+        }
+
+        body.dark .bg-light {
+            background-color: #14151a !important;
+        }
+
+        body.dark .start-header {
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark .start-header.scroll-on {
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        body.dark .nav-link {
+            color: #fff !important;
+        }
+
+        body.dark .nav-item.active .nav-link {
+            color: #999 !important;
+        }
+
+        body.dark .dropdown-menu {
+            color: #fff;
+            background-color: #1f2029;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        body.dark .dropdown-item {
+            color: #fff;
+        }
+
+        body.dark .navbar-light .navbar-toggler-icon {
+            border-bottom: 1px solid #fff;
+        }
+
+        body.dark .navbar-light .navbar-toggler-icon:after,
+        body.dark .navbar-light .navbar-toggler-icon:before {
+            background-color: #fff;
+        }
+
+        body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+            border-color: transparent;
+        }
+
+        /* #Media
+    ================================================== */
+
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 38px;
+            }
+
+            .nav-item:after {
+                display: none;
+            }
+
+            .nav-item::before {
+                position: absolute;
+                display: block;
+                top: 15px;
+                left: 0;
+                width: 11px;
+                height: 1px;
+                content: "";
+                border: none;
+                background-color: #000;
+                vertical-align: 0;
+            }
+
+            .dropdown-toggle::after {
+                position: absolute;
+                display: block;
+                top: 10px;
+                left: -23px;
+                width: 1px;
+                height: 11px;
+                content: "";
+                border: none;
+                background-color: #000;
+                vertical-align: 0;
+                transition: all 200ms linear;
+            }
+
+            .dropdown-toggle[aria-expanded="true"]::after {
+                transform: rotate(90deg);
+                opacity: 0;
+            }
+
+            .dropdown-menu {
+                padding: 0 !important;
+                background-color: transparent;
+                box-shadow: none;
+                transition: all 200ms linear;
+            }
+
+            .dropdown-toggle[aria-expanded="true"]+.dropdown-menu {
+                margin-top: 10px !important;
+                margin-bottom: 20px !important;
+            }
+
+            body.dark .nav-item::before {
+                background-color: #fff;
+            }
+
+            body.dark .dropdown-toggle::after {
+                background-color: #fff;
+            }
+
+            body.dark .dropdown-menu {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+
+        /* #Link to page
+    ================================================== */
+
+        .link-to-portfolio {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 200;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border-radius: 3px;
+            background-position: center center;
+            background-size: cover;
+            background-image: url('https://ivang-design.com/ig-logo.jpg');
+            box-shadow: 0 0 0 2px rgba(12, 12, 12, .1);
+            transition: opacity .2s, border-radius .2s, box-shadow .2s;
+            transition-timing-function: ease-out;
+        }
+
+        .link-to-portfolio:hover {
+            opacity: 0.8;
+            border-radius: 50%;
+            box-shadow: 0 0 0 20px rgba(12, 12, 12, .1);
+        }
+
+        .dmode {
+            position: fixed;
+            bottom: 30px;
+            z-index: 200;
+            right: 30px;
+        }
+
+        body.dark h6 {
+            color: #fff;
+        }
+
+        .popover-body {
+            background-color: #efeed9;
+        }
+
+        .arrow {
+            color: #efeed9;
+        }
+
+        body.dark h1 {
+            color: #fff;
+        }
+
+        .abh {
+            font-size: 50px;
+            font-weight: 600;
+            color: #343a40;
+            font-family: 'Architects Daughter', cursive;
+        }
+    </style>
+
+    {% block CSS %} {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+            $(function () {
+                var header = $(".start-style");
+                $(window).scroll(function () {
+                    var scroll = $(window).scrollTop();
+
+                    if (scroll >= 10) {
+                        header.removeClass('start-style').addClass("scroll-on");
+                    } else {
+                        header.removeClass("scroll-on").addClass('start-style');
+                    }
+                });
+            });
+
+            //Animation
+
+            $(document).ready(function () {
+                $('body.hero-anime').removeClass('hero-anime');
+            });
+
+            //Menu On Hover
+
+            $('body').on('mouseenter mouseleave', '.nav-item', function (e) {
+                if ($(window).width() > 750) {
+                    var _d = $(e.target).closest('.nav-item'); _d.addClass('show');
+                    setTimeout(function () {
+                        _d[_d.is(':hover') ? 'addClass' : 'removeClass']('show');
+                    }, 1);
+                }
+            });
+
+            //Switch light/dark
+
+            $("#switch").on('click', function () {
+                if ($("body").hasClass("dark")) {
+                    $("body").removeClass("dark");
+                    $("#switch").removeClass("switched");
+                }
+                else {
+                    $("body").addClass("dark");
+                    $("#switch").addClass("switched");
+                }
+            });
+
+        })(jQuery);   
+
+
+        /*
+ * bootstrap-tagsinput v0.8.0
+ * 
+ */
+
+(function ($) {
+  "use strict";
+
+  var defaultOptions = {
+    tagClass: function(item) {
+      return 'badge badge-info';
+    },
+    focusClass: 'focus',
+    itemValue: function(item) {
+      return item ? item.toString() : item;
+    },
+    itemText: function(item) {
+      return this.itemValue(item);
+    },
+    itemTitle: function(item) {
+      return null;
+    },
+    freeInput: true,
+    addOnBlur: true,
+    maxTags: undefined,
+    maxChars: undefined,
+    confirmKeys: [13, 44],
+    delimiter: ',',
+    delimiterRegex: null,
+    cancelConfirmKeysOnEmpty: false,
+    onTagExists: function(item, $tag) {
+      $tag.hide().fadeIn();
+    },
+    trimValue: false,
+    allowDuplicates: false,
+    triggerChange: true,
+    editOnBackspace: false
+  };
+
+  /**
+   * Constructor function
+   */
+  function TagsInput(element, options) {
+    this.isInit = true;
+    this.itemsArray = [];
+
+    this.$element = $(element);
+    this.$element.addClass('sr-only');
+
+    this.isSelect = (element.tagName === 'SELECT');
+    this.multiple = (this.isSelect && element.hasAttribute('multiple'));
+    this.objectItems = options && options.itemValue;
+    this.placeholderText = element.hasAttribute('placeholder') ? this.$element.attr('placeholder') : '';
+    this.inputSize = Math.max(1, this.placeholderText.length);
+
+    this.$container = $('<div class="bootstrap-tagsinput"></div>');
+    this.$input = $('<input type="text" placeholder="' + this.placeholderText + '"/>').appendTo(this.$container);
+
+    this.$element.before(this.$container);
+
+    this.build(options);
+    this.isInit = false;
+  }
+
+  TagsInput.prototype = {
+    constructor: TagsInput,
+
+    /**
+     * Adds the given item as a new tag. Pass true to dontPushVal to prevent
+     * updating the elements val()
+     */
+    add: function(item, dontPushVal, options) {
+      var self = this;
+
+      if (self.options.maxTags && self.itemsArray.length >= self.options.maxTags)
+        return;
+
+      // Ignore falsey values, except false
+      if (item !== false && !item)
+        return;
+
+      // Trim value
+      if (typeof item === "string" && self.options.trimValue) {
+        item = $.trim(item);
+      }
+
+      // Throw an error when trying to add an object while the itemValue option was not set
+      if (typeof item === "object" && !self.objectItems)
+        throw("Can't add objects when itemValue option is not set");
+
+      // Ignore strings only containg whitespace
+      if (item.toString().match(/^\s*$/))
+        return;
+
+      // If SELECT but not multiple, remove current tag
+      if (self.isSelect && !self.multiple && self.itemsArray.length > 0)
+        self.remove(self.itemsArray[0]);
+
+      if (typeof item === "string" && this.$element[0].tagName === 'INPUT') {
+        var delimiter = (self.options.delimiterRegex) ? self.options.delimiterRegex : self.options.delimiter;
+        var items = item.split(delimiter);
+        if (items.length > 1) {
+          for (var i = 0; i < items.length; i++) {
+            this.add(items[i], true);
+          }
+
+          if (!dontPushVal)
+            self.pushVal(self.options.triggerChange);
+          return;
+        }
+      }
+
+      var itemValue = self.options.itemValue(item),
+          itemText = self.options.itemText(item),
+          tagClass = self.options.tagClass(item),
+          itemTitle = self.options.itemTitle(item);
+
+      // Ignore items allready added
+      var existing = $.grep(self.itemsArray, function(item) { return self.options.itemValue(item) === itemValue; } )[0];
+      if (existing && !self.options.allowDuplicates) {
+        // Invoke onTagExists
+        if (self.options.onTagExists) {
+          var $existingTag = $(".badge", self.$container).filter(function() { return $(this).data("item") === existing; });
+          self.options.onTagExists(item, $existingTag);
+        }
+        return;
+      }
+
+      // if length greater than limit
+      if (self.items().toString().length + item.length + 1 > self.options.maxInputLength)
+        return;
+
+      // raise beforeItemAdd arg
+      var beforeItemAddEvent = $.Event('beforeItemAdd', { item: item, cancel: false, options: options});
+      self.$element.trigger(beforeItemAddEvent);
+      if (beforeItemAddEvent.cancel)
+        return;
+
+      // register item in internal array and map
+      self.itemsArray.push(item);
+
+      // add a tag element
+
+      var $tag = $('<span class="' + htmlEncode(tagClass) + (itemTitle !== null ? ('" title="' + itemTitle) : '') + '">' + htmlEncode(itemText) + '<span data-role="remove"></span></span>');
+      $tag.data('item', item);
+      self.findInputWrapper().before($tag);
+
+      // Check to see if the tag exists in its raw or uri-encoded form
+      var optionExists = (
+        $('option[value="' + encodeURIComponent(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length ||
+        $('option[value="' + htmlEncode(itemValue).replace(/"/g, '\\"') + '"]', self.$element).length
+      );
+
+      // add <option /> if item represents a value not present in one of the <select />'s options
+      if (self.isSelect && !optionExists) {
+        var $option = $('<option selected>' + htmlEncode(itemText) + '</option>');
+        $option.data('item', item);
+        $option.attr('value', itemValue);
+        self.$element.append($option);
+      }
+
+      if (!dontPushVal)
+        self.pushVal(self.options.triggerChange);
+
+      // Add class when reached maxTags
+      if (self.options.maxTags === self.itemsArray.length || self.items().toString().length === self.options.maxInputLength)
+        self.$container.addClass('bootstrap-tagsinput-max');
+
+      // If using typeahead, once the tag has been added, clear the typeahead value so it does not stick around in the input.
+      if ($('.typeahead, .twitter-typeahead', self.$container).length) {
+        self.$input.typeahead('val', '');
+      }
+
+      if (this.isInit) {
+        self.$element.trigger($.Event('itemAddedOnInit', { item: item, options: options }));
+      } else {
+        self.$element.trigger($.Event('itemAdded', { item: item, options: options }));
+      }
+    },
+
+    /**
+     * Removes the given item. Pass true to dontPushVal to prevent updating the
+     * elements val()
+     */
+    remove: function(item, dontPushVal, options) {
+      var self = this;
+
+      if (self.objectItems) {
+        if (typeof item === "object")
+          item = $.grep(self.itemsArray, function(other) { return self.options.itemValue(other) ==  self.options.itemValue(item); } );
+        else
+          item = $.grep(self.itemsArray, function(other) { return self.options.itemValue(other) ==  item; } );
+
+        item = item[item.length-1];
+      }
+
+      if (item) {
+        var beforeItemRemoveEvent = $.Event('beforeItemRemove', { item: item, cancel: false, options: options });
+        self.$element.trigger(beforeItemRemoveEvent);
+        if (beforeItemRemoveEvent.cancel)
+          return;
+
+        $('.badge', self.$container).filter(function() { return $(this).data('item') === item; }).remove();
+        $('option', self.$element).filter(function() { return $(this).data('item') === item; }).remove();
+        if($.inArray(item, self.itemsArray) !== -1)
+          self.itemsArray.splice($.inArray(item, self.itemsArray), 1);
+      }
+
+      if (!dontPushVal)
+        self.pushVal(self.options.triggerChange);
+
+      // Remove class when reached maxTags
+      if (self.options.maxTags > self.itemsArray.length)
+        self.$container.removeClass('bootstrap-tagsinput-max');
+
+      self.$element.trigger($.Event('itemRemoved',  { item: item, options: options }));
+    },
+
+    /**
+     * Removes all items
+     */
+    removeAll: function() {
+      var self = this;
+
+      $('.badge', self.$container).remove();
+      $('option', self.$element).remove();
+
+      while(self.itemsArray.length > 0)
+        self.itemsArray.pop();
+
+      self.pushVal(self.options.triggerChange);
+    },
+
+    /**
+     * Refreshes the tags so they match the text/value of their corresponding
+     * item.
+     */
+    refresh: function() {
+      var self = this;
+      $('.badge', self.$container).each(function() {
+        var $tag = $(this),
+            item = $tag.data('item'),
+            itemValue = self.options.itemValue(item),
+            itemText = self.options.itemText(item),
+            tagClass = self.options.tagClass(item);
+
+          // Update tag's class and inner text
+          $tag.attr('class', null);
+          $tag.addClass('badge ' + htmlEncode(tagClass));
+          $tag.contents().filter(function() {
+            return this.nodeType == 3;
+          })[0].nodeValue = htmlEncode(itemText);
+
+          if (self.isSelect) {
+            var option = $('option', self.$element).filter(function() { return $(this).data('item') === item; });
+            option.attr('value', itemValue);
+          }
+      });
+    },
+
+    /**
+     * Returns the items added as tags
+     */
+    items: function() {
+      return this.itemsArray;
+    },
+
+    /**
+     * Assembly value by retrieving the value of each item, and set it on the
+     * element.
+     */
+    pushVal: function() {
+      var self = this,
+          val = $.map(self.items(), function(item) {
+            return self.options.itemValue(item).toString();
+          });
+
+      self.$element.val( val.join(self.options.delimiter) );
+
+      if (self.options.triggerChange)
+        self.$element.trigger('change');
+    },
+
+    /**
+     * Initializes the tags input behaviour on the element
+     */
+    build: function(options) {
+      var self = this;
+
+      self.options = $.extend({}, defaultOptions, options);
+      // When itemValue is set, freeInput should always be false
+      if (self.objectItems)
+        self.options.freeInput = false;
+
+      makeOptionItemFunction(self.options, 'itemValue');
+      makeOptionItemFunction(self.options, 'itemText');
+      makeOptionFunction(self.options, 'tagClass');
+
+      // Typeahead Bootstrap version 2.3.2
+      if (self.options.typeahead) {
+        var typeahead = self.options.typeahead || {};
+
+        makeOptionFunction(typeahead, 'source');
+
+        self.$input.typeahead($.extend({}, typeahead, {
+          source: function (query, process) {
+            function processItems(items) {
+              var texts = [];
+
+              for (var i = 0; i < items.length; i++) {
+                var text = self.options.itemText(items[i]);
+                map[text] = items[i];
+                texts.push(text);
+              }
+              process(texts);
+            }
+
+            this.map = {};
+            var map = this.map,
+                data = typeahead.source(query);
+
+            if ($.isFunction(data.success)) {
+              // support for Angular callbacks
+              data.success(processItems);
+            } else if ($.isFunction(data.then)) {
+              // support for Angular promises
+              data.then(processItems);
+            } else {
+              // support for functions and jquery promises
+              $.when(data)
+               .then(processItems);
+            }
+          },
+          updater: function (text) {
+            self.add(this.map[text]);
+            return this.map[text];
+          },
+          matcher: function (text) {
+            return (text.toLowerCase().indexOf(this.query.trim().toLowerCase()) !== -1);
+          },
+          sorter: function (texts) {
+            return texts.sort();
+          },
+          highlighter: function (text) {
+            var regex = new RegExp( '(' + this.query + ')', 'gi' );
+            return text.replace( regex, "<strong>$1</strong>" );
+          }
+        }));
+      }
+
+      // typeahead.js
+      if (self.options.typeaheadjs) {
+        // Determine if main configurations were passed or simply a dataset
+        var typeaheadjs = self.options.typeaheadjs;
+        if (!$.isArray(typeaheadjs)) {
+            typeaheadjs = [null, typeaheadjs];
+        }
+
+        $.fn.typeahead.apply(self.$input, typeaheadjs).on('typeahead:selected', $.proxy(function (obj, datum, name) {
+          var index = 0;
+          typeaheadjs.some(function(dataset, _index) {
+            if (dataset.name === name) {
+              index = _index;
+              return true;
+            }
+            return false;
+          });
+
+          // @TODO Dep: https://github.com/corejavascript/typeahead.js/issues/89
+          if (typeaheadjs[index].valueKey) {
+            self.add(datum[typeaheadjs[index].valueKey]);
+          } else {
+            self.add(datum);
+          }
+
+          self.$input.typeahead('val', '');
+        }, self));
+      }
+
+      self.$container.on('click', $.proxy(function(event) {
+        if (! self.$element.attr('disabled')) {
+          self.$input.removeAttr('disabled');
+        }
+        self.$input.focus();
+      }, self));
+
+        if (self.options.addOnBlur && self.options.freeInput) {
+          self.$input.on('focusout', $.proxy(function(event) {
+              // HACK: only process on focusout when no typeahead opened, to
+              //       avoid adding the typeahead text as tag
+              if ($('.typeahead, .twitter-typeahead', self.$container).length === 0) {
+                self.add(self.$input.val());
+                self.$input.val('');
+              }
+          }, self));
+        }
+
+      // Toggle the 'focus' css class on the container when it has focus
+      self.$container.on({
+        focusin: function() {
+          self.$container.addClass(self.options.focusClass);
+        },
+        focusout: function() {
+          self.$container.removeClass(self.options.focusClass);
+        },
+      });
+
+      self.$container.on('keydown', 'input', $.proxy(function(event) {
+        var $input = $(event.target),
+            $inputWrapper = self.findInputWrapper();
+
+        if (self.$element.attr('disabled')) {
+          self.$input.attr('disabled', 'disabled');
+          return;
+        }
+
+        switch (event.which) {
+          // BACKSPACE
+          case 8:
+            if (doGetCaretPosition($input[0]) === 0) {
+              var prev = $inputWrapper.prev();
+              if (prev.length) {
+                if (self.options.editOnBackspace === true) {
+                  $input.val(prev.data('item'));
+                }
+                self.remove(prev.data('item'));
+              }
+            }
+            break;
+
+          // DELETE
+          case 46:
+            if (doGetCaretPosition($input[0]) === 0) {
+              var next = $inputWrapper.next();
+              if (next.length) {
+                self.remove(next.data('item'));
+              }
+            }
+            break;
+
+          // LEFT ARROW
+          case 37:
+            // Try to move the input before the previous tag
+            var $prevTag = $inputWrapper.prev();
+            if ($input.val().length === 0 && $prevTag[0]) {
+              $prevTag.before($inputWrapper);
+              $input.focus();
+            }
+            break;
+          // RIGHT ARROW
+          case 39:
+            // Try to move the input after the next tag
+            var $nextTag = $inputWrapper.next();
+            if ($input.val().length === 0 && $nextTag[0]) {
+              $nextTag.after($inputWrapper);
+              $input.focus();
+            }
+            break;
+         default:
+             // ignore
+         }
+
+        // Reset internal input's size
+        var textLength = $input.val().length,
+            wordSpace = Math.ceil(textLength / 5),
+            size = textLength + wordSpace + 1;
+        $input.attr('size', Math.max(this.inputSize, size));
+      }, self));
+
+      self.$container.on('keypress', 'input', $.proxy(function(event) {
+         var $input = $(event.target);
+
+         if (self.$element.attr('disabled')) {
+            self.$input.attr('disabled', 'disabled');
+            return;
+         }
+
+         var text = $input.val(),
+         maxLengthReached = self.options.maxChars && text.length >= self.options.maxChars;
+         if (self.options.freeInput && (keyCombinationInList(event, self.options.confirmKeys) || maxLengthReached)) {
+            // Only attempt to add a tag if there is data in the field
+            if (text.length !== 0) {
+               self.add(maxLengthReached ? text.substr(0, self.options.maxChars) : text);
+               $input.val('');
+            }
+
+            // If the field is empty, let the event triggered fire as usual
+            if (self.options.cancelConfirmKeysOnEmpty === false) {
+                event.preventDefault();
+            }
+         }
+
+         // Reset internal input's size
+         var textLength = $input.val().length,
+            wordSpace = Math.ceil(textLength / 5),
+            size = textLength + wordSpace + 1;
+         $input.attr('size', Math.max(this.inputSize, size));
+      }, self));
+
+      // Remove icon clicked
+      self.$container.on('click', '[data-role=remove]', $.proxy(function(event) {
+        if (self.$element.attr('disabled')) {
+          return;
+        }
+        self.remove($(event.target).closest('.badge').data('item'));
+      }, self));
+
+      // Only add existing value as tags when using strings as tags
+      if (self.options.itemValue === defaultOptions.itemValue) {
+        if (self.$element[0].tagName === 'INPUT') {
+            self.add(self.$element.val());
+        } else {
+          $('option', self.$element).each(function() {
+            self.add($(this).attr('value'), true);
+          });
+        }
+      }
+    },
+
+    /**
+     * Removes all tagsinput behaviour and unregsiter all event handlers
+     */
+    destroy: function() {
+      var self = this;
+
+      // Unbind events
+      self.$container.off('keypress', 'input');
+      self.$container.off('click', '[role=remove]');
+
+      self.$container.remove();
+      self.$element.removeData('tagsinput');
+      self.$element.show();
+    },
+
+    /**
+     * Sets focus on the tagsinput
+     */
+    focus: function() {
+      this.$input.focus();
+    },
+
+    /**
+     * Returns the internal input element
+     */
+    input: function() {
+      return this.$input;
+    },
+
+    /**
+     * Returns the element which is wrapped around the internal input. This
+     * is normally the $container, but typeahead.js moves the $input element.
+     */
+    findInputWrapper: function() {
+      var elt = this.$input[0],
+          container = this.$container[0];
+      while(elt && elt.parentNode !== container)
+        elt = elt.parentNode;
+
+      return $(elt);
+    }
+  };
+
+  /**
+   * Register JQuery plugin
+   */
+  $.fn.tagsinput = function(arg1, arg2, arg3) {
+    var results = [];
+
+    this.each(function() {
+      var tagsinput = $(this).data('tagsinput');
+      // Initialize a new tags input
+      if (!tagsinput) {
+          tagsinput = new TagsInput(this, arg1);
+          $(this).data('tagsinput', tagsinput);
+          results.push(tagsinput);
+
+          if (this.tagName === 'SELECT') {
+              $('option', $(this)).attr('selected', 'selected');
+          }
+
+          // Init tags from $(this).val()
+          $(this).val($(this).val());
+      } else if (!arg1 && !arg2) {
+          // tagsinput already exists
+          // no function, trying to init
+          results.push(tagsinput);
+      } else if(tagsinput[arg1] !== undefined) {
+          // Invoke function on existing tags input
+            if(tagsinput[arg1].length === 3 && arg3 !== undefined){
+               var retVal = tagsinput[arg1](arg2, null, arg3);
+            }else{
+               var retVal = tagsinput[arg1](arg2);
+            }
+          if (retVal !== undefined)
+              results.push(retVal);
+      }
+    });
+
+    if ( typeof arg1 == 'string') {
+      // Return the results from the invoked function calls
+      return results.length > 1 ? results : results[0];
+    } else {
+      return results;
+    }
+  };
+
+  $.fn.tagsinput.Constructor = TagsInput;
+
+  /**
+   * Most options support both a string or number as well as a function as
+   * option value. This function makes sure that the option with the given
+   * key in the given options is wrapped in a function
+   */
+  function makeOptionItemFunction(options, key) {
+    if (typeof options[key] !== 'function') {
+      var propertyName = options[key];
+      options[key] = function(item) { return item[propertyName]; };
+    }
+  }
+  function makeOptionFunction(options, key) {
+    if (typeof options[key] !== 'function') {
+      var value = options[key];
+      options[key] = function() { return value; };
+    }
+  }
+  /**
+   * HtmlEncodes the given value
+   */
+  var htmlEncodeContainer = $('<div />');
+  function htmlEncode(value) {
+    if (value) {
+      return htmlEncodeContainer.text(value).html();
+    } else {
+      return '';
+    }
+  }
+
+  /**
+   * Returns the position of the caret in the given input field
+   * http://flightschool.acylt.com/devnotes/caret-position-woes/
+   */
+  function doGetCaretPosition(oField) {
+    var iCaretPos = 0;
+    if (document.selection) {
+      oField.focus ();
+      var oSel = document.selection.createRange();
+      oSel.moveStart ('character', -oField.value.length);
+      iCaretPos = oSel.text.length;
+    } else if (oField.selectionStart || oField.selectionStart == '0') {
+      iCaretPos = oField.selectionStart;
+    }
+    return (iCaretPos);
+  }
+
+  /**
+    * Returns boolean indicates whether user has pressed an expected key combination.
+    * @param object keyPressEvent: JavaScript event object, refer
+    *     http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
+    * @param object lookupList: expected key combinations, as in:
+    *     [13, {which: 188, shiftKey: true}]
+    */
+  function keyCombinationInList(keyPressEvent, lookupList) {
+      var found = false;
+      $.each(lookupList, function (index, keyCombination) {
+          if (typeof (keyCombination) === 'number' && keyPressEvent.which === keyCombination) {
+              found = true;
+              return false;
+          }
+
+          if (keyPressEvent.which === keyCombination.which) {
+              var alt = !keyCombination.hasOwnProperty('altKey') || keyPressEvent.altKey === keyCombination.altKey,
+                  shift = !keyCombination.hasOwnProperty('shiftKey') || keyPressEvent.shiftKey === keyCombination.shiftKey,
+                  ctrl = !keyCombination.hasOwnProperty('ctrlKey') || keyPressEvent.ctrlKey === keyCombination.ctrlKey;
+              if (alt && shift && ctrl) {
+                  found = true;
+                  return false;
+              }
+          }
+      });
+
+      return found;
+  }
+
+  /**
+   * Initialize tagsinput behaviour on inputs and selects which have
+   * data-role=tagsinput
+   */
+  $(function() {
+    $("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput();
+  });
+})(window.jQuery);
+        </script>
+
+    {% block JS %} {% endblock %}
+
+
+    <footer class="text-center text-md-left" style="margin-top: 85px;">
+        <div class="container">
+            <div class="col d-flex justify-content-center mb-4">
+                <a href="#" class="d-block px-3"><img
+                        src="https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-facebook-m.png"
+                        alt="Facebook" /></a><a href="#" class="d-block px-3"><img
+                        src="https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-twitter-m.png"
+                        alt="Twitter" /></a><a href="https://www.instagram.com/gaurav_edc/" target="_blank" class="d-block px-3"><img
+                        src="https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-instagram-m.png"
+                        alt="Instagram" /></a><a href="#" class="d-block px-3"><img
+                        src="https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-linkedin-m.png"
+                        alt="Linkedin" /></a>
+            </div>
+            <p class="text-center text-secondary border-top border-secondary py-4">
+                Copyright 2020 | All Rights Reserved by techgeek19
+            </p>
+        </div>
+    </footer>
+    <!-- <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+          <div class="container text-center">
+            <small>Copyright &copy; Your Website</small>
+          </div> -->
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,464 @@
+{% extends 'outlet/base.html' %}
+{% load static %}
+{% block title %} Home{% endblock %}
+
+{% block body %}
+<!-- <div class="section full-height"> -->
+  <!-- <img src="/static/outlet/3.jpg" alt=""> -->
+  <div class="parallax">
+  <div class="absolute-center">
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 style=" color: #33224b;font-family: 'Caveat', cursive;"><span id="typed"> Django application for </span></h1>
+            <h1 style="    font-size: 20px;
+              color: #33224b;
+              font-weight: 500;">
+              <span>@</span><span>t</span><span>e</span><span>c</span><span>h</span><span>g</span><span>e</span><span>e</span><span>k</span><span>1</span><span>9</span></h1>
+            <p>
+              <a href="{% url 'signup'%}"><button type="button"  class="btn btn-light mr-3">Register
+            <i class="fas fa-user-plus" style="font-size: 22px; margin-bottom: 5%;"></i>
+            </button></a>
+
+            <a href="{% url 'login'%}"><button type="button"  class="btn btn-light">Login
+              <i class="fas fa-user" style="font-size: 22px; margin-bottom: 5%;"></i>
+              </button></a>
+         
+        </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> </div>
+
+
+<div class="container-fluid" style="margin-top: 20px; margin-bottom: 50px;">
+    
+  <div class="row text-center">
+      <div class="col">
+          <h1>Steps to follow</h1>
+          <hr style="width: 185px; border: 0.5px solid; margin-bottom: 50px;">
+      </div>
+  </div>
+  <div class="row text-center">
+      <div class="col-6 col-md-3 col-lg-3">
+          <i class="fas fa-user-plus" style="font-size: 50px; margin-bottom: 5%;"></i>
+          <h4>Register</h4>
+          <p>
+              Initial step involves creating your account via register link mentioned above.
+          </p>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-3">
+          <i class="fas fa-user" style="font-size: 50px; margin-bottom: 5%;"></i>
+          <h4> Login</h4>
+          <p>
+              If you've already registered earlier Login with your credentials to access product listing page.  
+          </p>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-3">
+          <i class="fas fa-hand-pointer" style="font-size: 50px; margin-bottom: 5%;"></i>
+          <h4>Product Detail</h4>
+          <p>
+             Click on any product to view product detailed page.  
+          </p>
+      </div>
+
+      <div class="col-6 col-md-3 col-lg-3">
+          <i class="fas fa-check-square" style="font-size: 50px; margin-bottom: 5%;"></i>
+          <h4>Change Password</h4>
+          <p>
+              If you wish to update your password! Hover over your name for dropdown.
+          </p>
+      </div>
+  </div>
+</div>
+
+<div class="text-center mb-5">
+  <h3>DEMO CREDENTIAL FOR USER &amp; ADMIN LOGIN</h3> <p> Username: "gaurav" &nbsp; &nbsp; Password: "gauravgaurav" </p>
+  </div>
+{% endblock %}
+
+{% block CSS %}
+<style>
+  .CH{
+    margin-top: 40px;  color: #343a40;
+  font-family: 'Architects Daughter', cursive;  font-weight: 600;
+  }
+  .owl-carousel .owl-wrapper-outer {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-block-end-width: 60px;
+    border: burlywood;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: #f3f2e0;
+}
+ body.dark .owl-wrapper-outer{
+  background-color: #435361;
+ }
+ body.dark h4{
+color: white;
+ }
+  .parallax {
+  /* The image used */
+  background-image: url("/static/outlet/3.jpg");
+
+  /* Set a specific height */
+  height: 500px; 
+  margin-bottom: 40px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+
+  /* filter: blur(4px);
+  -webkit-filter: blur(4px); */
+}
+  .rupee_font {
+    font-size: 12px;
+    bottom: 5px;
+    position: relative;
+    margin-left: 24px;
+    color: indianred;
+  }
+
+  .stretch-card>.card {
+    width: 100%;
+    min-width: 100%
+  }
+
+  body {
+    background-color: #f9f9fa
+  }
+
+  .flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+  }
+
+  @media (max-width:991.98px) {
+    .padding {
+      padding: 1.5rem
+    }
+  }
+
+  @media (max-width:767.98px) {
+    .padding {
+      padding: 1rem
+    }
+  }
+
+  .padding {
+    padding: 3rem
+  }
+
+  .owl-carousel .item {
+    margin: 3px
+  }
+
+  .owl-carousel .item img {
+    display: block;
+    width: 200px;
+    align-self: center;
+    height: 210px;
+  }
+
+  .owl-carousel .item {
+    margin: 3px
+  }
+
+  .owl-carousel {
+    margin-bottom: 15px
+  }
+
+  .card-title {
+    margin-bottom: 0px;
+  }
+
+  .card {
+    background-color: rgba(280, 280, 245, -0.6);
+    border-style: none;
+  }
+
+  .check_icon {
+    color: #1e7e34;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-left: 150px;
+  }
+
+  .fa-trash-alt {
+    font-size: 22px;
+    cursor: pointer;
+    color: crimson;
+  }
+
+  body.dark .card-title {
+    color: white;
+}
+ 
+</style>
+
+{% endblock %}
+
+{% block JS %}
+
+<script>
+
+  // =======================Carousel=========================================
+  $(document).ready(function () {
+
+    $(".owl-carousel").owlCarousel({
+      autoPlay: 3000,
+      items: 4,
+      itemsDesktop: [1199, 3],
+      itemsDesktopSmall: [979, 3],
+      center: true,
+      nav: true,
+      loop: true,
+      responsive: {
+        600: {
+          items: 1
+        }
+      }
+    });
+  });
+  
+  // =======================Caraousel Ends=============================================
+
+
+  $( window ).resize( function() {
+  centerSplash();
+});
+
+!function($){
+
+    "use strict";
+
+    var Typed = function(el, options){
+
+        // chosen element to manipulate text
+        this.el = $(el);
+        // options
+        this.options = $.extend({}, $.fn.typed.defaults, options);
+
+        // text content of element
+        this.text = this.el.text();
+
+        // typing speed
+        this.typeSpeed = this.options.typeSpeed;
+
+        // amount of time to wait before backspacing
+        this.backDelay = this.options.backDelay;
+
+        // input strings of text
+        this.strings = this.options.strings;
+
+        // character number position of current string
+        this.strPos = 0;
+
+        // current array position
+        this.arrayPos = 0;
+
+        // current string based on current values[] array position
+        this.string = this.strings[this.arrayPos];
+
+        // number to stop backspacing on.
+        // default 0, can change depending on how many chars
+        // you want to remove at the time
+        this.stopNum = 0;
+
+        // Looping logic
+        this.loop = this.options.loop;
+        this.loopCount = this.options.loopCount;
+        this.curLoop = 1;
+        if (this.loop === false){
+            // number in which to stop going through array
+            // set to strings[] array (length - 1) to stop deleting after last string is typed
+            this.stopArray = this.strings.length-1;
+        }
+        else{
+            this.stopArray = this.strings.length;
+        }
+
+        // All systems go!
+        this.init();
+        this.build();
+    }
+
+        Typed.prototype =  {
+
+            constructor: Typed
+
+            , init: function(){
+                // begin the loop w/ first current string (global self.string)
+                // current string will be passed as an argument each time after this
+                this.typewrite(this.string, this.strPos);
+            }
+
+            , build: function(){
+                this.el.after("<span id=\"typed-cursor\">|</span>");
+            }
+
+            // pass current string state to each function
+            , typewrite: function(curString, curStrPos){
+
+                // varying values for setTimeout during typing
+                // can't be global since number changes each time loop is executed
+                var humanize = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;
+                var self = this;
+
+                // ------------- optional ------------- //
+                // backpaces a certain string faster
+                // ------------------------------------ //
+                // if (self.arrayPos == 1){
+                //  self.backDelay = 50;
+                // }
+                // else{ self.backDelay = 500; }
+
+                // containg entire typing function in a timeout
+                setTimeout(function() {
+
+                    // make sure array position is less than array length
+                    if (self.arrayPos < self.strings.length){
+
+                        // start typing each new char into existing string
+                        // curString is function arg
+                        self.el.text(self.text + curString.substr(0, curStrPos));
+
+                        // check if current character number is the string's length
+                        // and if the current array position is less than the stopping point
+                        // if so, backspace after backDelay setting
+                        if (curStrPos > curString.length && self.arrayPos < self.stopArray){
+                            clearTimeout(clear);
+                            var clear = setTimeout(function(){
+                                self.backspace(curString, curStrPos);
+                            }, self.backDelay);
+                        }
+
+                        // else, keep typing
+                        else{
+                            // add characters one by one
+                            curStrPos++;
+                            // loop the function
+                            self.typewrite(curString, curStrPos);
+                            // if the array position is at the stopping position
+                            // finish code, on to next task
+                            if (self.loop === false){
+                                if (self.arrayPos === self.stopArray && curStrPos === curString.length){
+                                    // animation that occurs on the last typed string
+                                    // fires callback function
+                                    var clear = self.options.callback();
+                                    clearTimeout(clear);
+                                }
+                            }
+                        }
+                    }
+                    // if the array position is greater than array length
+                    // and looping is active, reset array pos and start over.
+                    else if (self.loop === true && self.loopCount === false){
+                        self.arrayPos = 0;
+                        self.init();
+                    }
+                        else if(self.loopCount !== false && self.curLoop < self.loopCount){
+                            self.arrayPos = 0;
+                            self.curLoop = self.curLoop+1;
+                            self.init();
+                        }
+
+                // humanized value for typing
+                }, humanize);
+
+            }
+
+            , backspace: function(curString, curStrPos){
+
+                // varying values for setTimeout during typing
+                // can't be global since number changes each time loop is executed
+                var humanize = Math.round(Math.random() * (100 - 30)) + this.typeSpeed;
+                var self = this;
+
+                setTimeout(function() {
+
+                    // ----- this part is optional ----- //
+                    // check string array position
+                    // on the first string, only delete one word
+                    // the stopNum actually represents the amount of chars to
+                    // keep in the current string. In my case it's 14.
+                     if (self.arrayPos == 1, 2, 3, 4){
+                        self.stopNum = 0;
+                     }
+                    //every other time, delete the whole typed string
+                     //else{
+                        //self.stopNum = 0;
+                     //}
+
+                    // ----- continue important stuff ----- //
+                    // replace text with current text + typed characters
+                    self.el.text(self.text + curString.substr(0, curStrPos));
+
+                    // if the number (id of character in current string) is
+                    // less than the stop number, keep going
+                    if (curStrPos > self.stopNum){
+                        // subtract characters one by one
+                        curStrPos--;
+                        // loop the function
+                        self.backspace(curString, curStrPos);
+                    }
+                    // if the stop number has been reached, increase
+                    // array position to next string
+                    else if (curStrPos <= self.stopNum){
+                        clearTimeout(clear);
+                        var clear = self.arrayPos = self.arrayPos+1;
+                        // must pass new array position in this instance
+                        // instead of using global arrayPos
+                        self.typewrite(self.strings[self.arrayPos], curStrPos);
+                    }
+
+                // humanized value for typing
+                }, humanize);
+
+            }
+
+        }
+
+    $.fn.typed = function (option) {
+        return this.each(function () {
+          var $this = $(this)
+            , data = $this.data('typed')
+            , options = typeof option == 'object' && option
+          if (!data) $this.data('typed', (data = new Typed(this, options)))
+          if (typeof option == 'string') data[option]()
+        });
+    }
+
+ 
+
+
+}(window.jQuery);
+
+
+$(function(){
+
+        $("#typed").typed({
+            strings: ["Product Listing Page","Product Detail Page"], //Strings to display when typing
+            typeSpeed: 40,
+            backDelay: 600,
+            loop: true,
+            // defaults to false for infinite loop
+            loopCount: false,
+            callback: function(){ foo(); }
+        });
+
+        function foo(){ console.log("Callback"); }
+
+    });
+</script>
+{% endblock %}

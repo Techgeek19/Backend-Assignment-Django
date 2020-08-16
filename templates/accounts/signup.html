@@ -1,0 +1,40 @@
+{% extends 'outlet/base.html' %}
+{% block title %}Sign Up{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<!-- <div class="container-fluid"> -->
+    <!-- <div class="card" style="margin-top: 58px;"> -->
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-12">
+            <h1 class="abh"><span>S</span><span>i</span><span>g</span><span>n</span><span>&nbsp;</span><span>U</span><span>p</span></h1>
+                </div>	
+            
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <div class="col-lg-6 col-md-6 offset-lg-3 offset-md-3 col-sm-12 col-xs-12 alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        <div class="col-lg-6 col-md-6 offset-md-3">
+            <!-- <h1 style="text-align: center;">Sign Up</h1> -->
+            <hr>
+        </div>
+    </div>
+</div>
+    <div class="row mb-5">
+        <div class="col-lg-6 col-md-6 offset-md-3">
+                <form method="post" class="form" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% for field in form %}
+                        <div class="form-group col-lg-6 col-md-6">
+                            {{ field | as_crispy_field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="btn btn-info m-3" type="submit">Register</button>
+                </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends 'outlet/base.html' %}
+
+{% block body %}
+ 
+<div class="row " style="margin-top: 90px;"></div>
+
+
+<!-- ==============================Carousel Start================================ -->
+{% for o in allprod %}
+
+<!-- <div class="page-content page-container" id="page-content">
+    <div class="padding"> -->
+<div class="container-fluid">
+  <h4 class="CH text-center mb-5">Product Listing Page! Click to see the details.</h4>
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="owl-carousel">
+      <div class="item">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="/media/{{ o.image }}" alt="Card image cap">
+          <div class="card-body" style="padding-left: 35px;  padding-right: 35px;"> 
+            <a href="/outlet/productview/{{o.id}}" style="text-decoration: none; color: darkslategray;">
+              <h6 class="card-title" id="namepr{{o.id}}">{{ o.product_name|slice:'0:30'}}..
+              </h6>
+            </a>
+            <div class="input-group-append">
+            <p class="card-text mb-3"> Quantity: {{o.quantity}}<small class="text-muted"></small</p>
+
+              <a href="/outlet/productview/{{o.id}}">
+                <button id="pv{{ o.id }}" type="button" data-toggle="tooltip" title="View Details" class="btn btn-primary btn-sm ml-5">Detail <i class="fa fa-eye"></i>
+                </button>
+              </a>
+         
+             
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+   
+    </div>
+  </div>
+</div>
+<!-- </div>
+</div> -->
+{% endfor %}
+
+<!-- ==============================Carousel End================================ -->
+{% endblock %}
+
+{% block CSS %}
+<style>
+  .CH{
+    margin-top: 40px;  color: #343a40;
+  font-family: 'Architects Daughter', cursive;  font-weight: 600;
+  }
+  .owl-carousel .owl-wrapper-outer {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-block-end-width: 60px;
+    border: burlywood;
+    border: 1px solid rgba(0,0,0,.125);
+    background-color: #f3f2e0;
+}
+ body.dark .owl-wrapper-outer{
+  background-color: #435361;
+ }
+ body.dark h4{
+color: white;
+ }
+  .parallax {
+  /* The image used */
+  background-image: url("/static/outlet/3.jpg");
+
+  /* Set a specific height */
+  height: 500px; 
+  margin-bottom: 40px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+
+  /* filter: blur(4px);
+  -webkit-filter: blur(4px); */
+}
+  .rupee_font {
+    font-size: 12px;
+    bottom: 5px;
+    position: relative;
+    margin-left: 24px;
+    color: indianred;
+  }
+
+  .stretch-card>.card {
+    width: 100%;
+    min-width: 100%
+  }
+
+  body {
+    background-color: #f9f9fa
+  }
+
+  .flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+  }
+
+  @media (max-width:991.98px) {
+    .padding {
+      padding: 1.5rem
+    }
+  }
+
+  @media (max-width:767.98px) {
+    .padding {
+      padding: 1rem
+    }
+  }
+
+  .padding {
+    padding: 3rem
+  }
+
+  .owl-carousel .item {
+    margin: 3px
+  }
+
+  .owl-carousel .item img {
+    display: block;
+    width: 200px;
+    align-self: center;
+    height: 210px;
+  }
+
+  .owl-carousel .item {
+    margin: 3px
+  }
+
+  .owl-carousel {
+    margin-bottom: 15px
+  }
+
+  .card-title {
+    margin-bottom: 0px;
+  }
+
+  .card {
+    background-color: rgba(280, 280, 245, -0.6);
+    border-style: none;
+  }
+
+  .check_icon {
+    color: #1e7e34;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-left: 150px;
+  }
+
+  .fa-trash-alt {
+    font-size: 22px;
+    cursor: pointer;
+    color: crimson;
+  }
+
+  body.dark .card-title {
+    color: white;
+}
+ 
+</style>
+
+{% endblock %}
+
+{% block JS %}
+
+<script>
+
+  // =======================Carousel=========================================
+  $(document).ready(function () {
+
+    $(".owl-carousel").owlCarousel({
+      autoPlay: 3000,
+      items: 4,
+      itemsDesktop: [1199, 3],
+      itemsDesktopSmall: [979, 3],
+      center: true,
+      nav: true,
+      loop: true,
+      responsive: {
+        600: {
+          items: 1
+        }
+      }
+    });
+  });
+  // =======================Caraousel Ends=============================================
+</script>
+{% endblock %}
